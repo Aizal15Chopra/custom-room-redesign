@@ -1,13 +1,13 @@
+import Image from 'next/image'
 import React from 'react'
-import Header from './_components/Header'
 
-function DashboardLayout() {
+function Header() {
   return (
     <div>
-        <Header/>
-        {children}
+        <Image src ={'/logo.svg'} width = {40} height = {40} /> 
+        <h2 className = 'font-bold text-lg'>AI Room Design</h2>
     </div>
   )
 }
 
-export default DashboardLayout
+export default Header
