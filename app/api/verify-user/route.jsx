@@ -20,9 +20,9 @@ export async function POST(req){
             name: user?.fullName,
             email: user?.primaryEmailAddress.emailAddress,
             imageUrl: user?.imageUrl,
-        }).returning({id:Users.id})
+        }).returning({Users})
 
-        return NextResponse.json({'result':SaveResult[0]})
+        return NextResponse.json({'result':SaveResult[0].Users})
     }    
     return NextResponse.json({'result':userInfo[0]})
     } catch (e) {
