@@ -1,5 +1,6 @@
 import { db } from "@/config/db";
 import { Users } from "@/config/schema";
+import { eq } from "drizzle-orm";
 import { NextResponse } from "next/server";
 
 export async function POST(req){
@@ -21,12 +22,13 @@ export async function POST(req){
             imageUrl: user?.imageUrl,
         }).returning({id:Users.id})
 
-        return NextResponse.json({'result':SaveResult})
+        return NextResponse.json({'result':SaveResult[0]})
     }    
+    return NextResponse.json({'result':userInfo[0]})
     } catch (e) {
-        
+        return NextResponse.json({error: e.message});
     }
 
-    // If not Will add new user to DB
-    return NextResponse.json({result: user});
+    // // If not Will add new user to DB
+    // return NextResponse.json({result: user});
 }
