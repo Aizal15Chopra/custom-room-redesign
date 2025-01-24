@@ -2,6 +2,9 @@ import React from 'react'
 import ImageSelection from './_components/ImageSelection'
 
 function CreateNew() {
+
+  const onHandleInputChange=(value, fieldName)=>{
+  }
   return (
     <div>
        <h2 className='font-bold text-4xl text-primary text-center'>Experience the Magic of AI Remodelling</h2>
@@ -12,8 +15,17 @@ function CreateNew() {
        <div className='grid grid-cols-1 md:grid-cols-2 items-center justify-center
        mt-10'>
         {/* Image Selection*/}
-            <ImageSelection />
+            <ImageSelection selectedImage={(value)=> onHandleInputChange(value,'image')}/>
         {/* Form Input section*/}
+        <div>
+          {/* Room type*/}
+
+          {/* Design type*/}
+
+          {/* Additional requirement text area (optional)*/}
+
+          {/* Button to generate image*/}
+        </div>
 
        </div>
     </div>
