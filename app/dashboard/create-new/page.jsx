@@ -1,5 +1,7 @@
+"use client"
 import React from 'react'
 import ImageSelection from './_components/ImageSelection'
+import RoomType from './_components/RoomType'
 
 function CreateNew() {
 
@@ -12,13 +14,13 @@ function CreateNew() {
         Transform any room with a click! Select a space, choose a style, as AI instantly reimagines your environment.
        </p>
 
-       <div className='grid grid-cols-1 md:grid-cols-2 items-center justify-center
-       mt-10'>
+       <div className='grid grid-cols-1 md:grid-cols-2 mt-10 gap-10'>
         {/* Image Selection*/}
             <ImageSelection selectedImage={(value)=> onHandleInputChange(value,'image')}/>
         {/* Form Input section*/}
         <div>
           {/* Room type*/}
+          <RoomType/>
 
           {/* Design type*/}
 
