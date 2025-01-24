@@ -1,11 +1,13 @@
 "use client"
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 
 function ImageSelection() {
 
+    const[file,setFile]=useState();
     const onFileSelected=(event)=>{
         console.log(event.target.files[0])
+        setFile(event.target.files[0])
 
     }
   return (
@@ -16,9 +18,14 @@ function ImageSelection() {
         <div className='mt-3'>
             <label 
                 htmlFor = 'upload-image'>
-                <div className='p-28 border rounded-xl 
-                border-dotted flex justify-center border-primary bg-slate-200 cursor-pointer hover:shadow-lg'> 
-                    <Image src = {'/imageupload.png'} width={50} height={50} alt='image'/>
+                <div className={`p-28 border rounded-xl 
+                border-dotted flex justify-center border-primary 
+                bg-slate-200 cursor-pointer hover:shadow-lg
+                ${file&& 'p-0 bg-white'}
+                `}> 
+                    {!file? <Image src = {'/imageupload.png'} width={50} height={50} alt='image'/>
+                    :<Image src = {URL.createObjectURL(file)} width={50} height={50} alt='image'
+                    className='w-[200px] h-[200px] object-cover'/>}
                 </div>
             </label>
             <input type='file' accept = 'image/*' 
