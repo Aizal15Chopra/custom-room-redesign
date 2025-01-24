@@ -11,7 +11,7 @@ import {
 function RoomType(selectedRoomType) {
   return (
     <div>
-        <label className='text-slate-1000'>Select Room Type</label>
+        <label className='text-slate-500'>Select Room Type</label>
         <Select onValueChange={(value) => selectedRoomType(value,'image')}>
     <SelectTrigger className="w-full">
       <SelectValue placeholder="Room Type" />

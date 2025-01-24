@@ -13,7 +13,7 @@ function ImageSelection(selectedImage) {
     }
   return (
     <div>
-        <label>
+        <label className='text-gray-500 text-md text-center justify-center'>
             Select Image of your room
         </label>
         <div className='mt-3'>

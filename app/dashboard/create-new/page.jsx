@@ -1,13 +1,18 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import ImageSelection from './_components/ImageSelection'
 import RoomType from './_components/RoomType'
 import DesignType from './_components/DesignType'
 import AdditionalReq from './_components/AdditionalReq'
+import { Button } from '@/components/ui/button'
 
 function CreateNew() {
 
+  const [formData, setFormData] = useState([]);
   const onHandleInputChange=(value, fieldName)=>{
+    setFormData(prev=>({...prev, [fieldName]:value}))
+
+    console.log(formData);
   }
   return (
     <div>
@@ -27,8 +32,10 @@ function CreateNew() {
           {/* Design type*/}
             <DesignType selectedDesignType={(value) => onHandleInputChange(value, 'DesignType')} />
           {/* Additional requirement text area (optional)*/}
-            <AdditionalReq/>
+            <AdditionalReq additionalRequirementInput = {(value)=>onHandleInputChange(value,'additionalReq')}/>
           {/* Button to generate image*/}
+          <Button className='w-full mt-5'>Generate</Button>
+          <p className='text-sm text-gray-500 mb-52'>NOTE: 1 Credit will be used to redesign your room</p>
         </div>
 
        </div>
