@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { useUser } from '@clerk/clerk-react'
 import React, { useState } from 'react'
 import EmptyState from './EmptyState';
+import Link from 'next/link';
 
 function Listing() {
   const {user} = useUser(); 
@@ -12,8 +13,9 @@ function Listing() {
       
       <div className='flex justify-between items-center'>
           <h2 className='font-bold text-3xl'> Hello, {user?.fullName} </h2>
-          
-         <Button>+ Redesign Room</Button>
+          <Link href={'/dashboard/create-new'}> 
+              <Button>+ Redesign Room</Button>
+          </Link>
       </div>
 
       {userRoomList?.length === 0?
