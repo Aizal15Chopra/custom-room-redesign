@@ -14,6 +14,15 @@ function CreateNew() {
 
     console.log(formData); 
   }
+
+  const GenerateAiImage=()=>{
+    
+
+
+  }
+
+
+
   return (
     <div>
        <h2 className='font-bold text-4xl text-primary text-center'>Experience the Magic of AI Remodelling</h2>
