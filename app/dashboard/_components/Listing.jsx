@@ -12,6 +12,7 @@ function Listing() {
       
       <div className='flex justify-between items-center'>
           <h2 className='font-bold text-3xl'> Hello, {user?.fullName} </h2>
+          
          <Button>+ Redesign Room</Button>
       </div>
 
