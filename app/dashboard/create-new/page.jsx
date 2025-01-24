@@ -20,7 +20,7 @@ function CreateNew() {
         {/* Form Input section*/}
         <div>
           {/* Room type*/}
-          <RoomType/>
+          <RoomType selectedRoomType={(value)=> onHandleInputChange(value,'roomType')}/>
 
           {/* Design type*/}
 
