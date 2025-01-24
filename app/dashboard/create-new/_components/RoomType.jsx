@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import {
     Select,
@@ -8,11 +9,11 @@ import {
   } from "@/components/ui/select"
   
 
-function RoomType(selectedRoomType) {
+function RoomType({selectedRoomType}) {
   return (
     <div>
         <label className='text-slate-500'>Select Room Type</label>
-        <Select onValueChange={(value) => selectedRoomType(value,'image')}>
+        <Select onValueChange={(value) => selectedRoomType(value,'roomType')}>
     <SelectTrigger className="w-full">
       <SelectValue placeholder="Room Type" />
     </SelectTrigger>

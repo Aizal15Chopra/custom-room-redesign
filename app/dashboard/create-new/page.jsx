@@ -12,7 +12,7 @@ function CreateNew() {
   const onHandleInputChange=(value, fieldName)=>{
     setFormData(prev=>({...prev, [fieldName]:value}))
 
-    console.log(formData);
+    console.log(formData); 
   }
   return (
     <div>
