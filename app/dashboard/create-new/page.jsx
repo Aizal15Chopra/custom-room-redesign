@@ -6,6 +6,8 @@ import DesignType from './_components/DesignType'
 import AdditionalReq from './_components/AdditionalReq'
 import { Button } from '@/components/ui/button'
 import axios from 'axios'
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
+import { storage } from '@/config/firebaseConfig'
 
 function CreateNew() {
 
@@ -17,13 +19,25 @@ function CreateNew() {
   }
 
   const GenerateAiImage=async()=>{
+    const rawImageUrl = await SaveRawImageToFirebase();
     const result = await axios.post('/api/redesign-room', formData);
     console.log(result);
   }
 
-  const SaveRawImageToFirebase=()=>{
+  const SaveRawImageToFirebase=async()=>{
     // Save raw file image to firebase
     const fileName=Data.now()+"_raw.png";
+    const imageRef = ref(storage, 'room-redesign/'+fileName);
+
+    await uploadBytes(imageRef, formData.image).then(resp=>{
+      console.log('Image uploaded to firebase');  
+    })
+
+    //upload file image url
+    const downloadUrl = await getDownloadURL(imageRef);
+    console.log(downloadUrl);
+    return downloadUrl;
+       
 
   }
 
