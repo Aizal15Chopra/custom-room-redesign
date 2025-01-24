@@ -24,7 +24,7 @@ function CreateNew() {
           <RoomType selectedRoomType={(value)=> onHandleInputChange(value,'roomType')}/>
 
           {/* Design type*/}
-            <DesignType/>
+            <DesignType selectedDesignType={(value) => onHandleInputChange(value, 'DesignType')} />
           {/* Additional requirement text area (optional)*/}
 
           {/* Button to generate image*/}
