@@ -3,6 +3,7 @@ import React from 'react'
 import ImageSelection from './_components/ImageSelection'
 import RoomType from './_components/RoomType'
 import DesignType from './_components/DesignType'
+import AdditionalReq from './_components/AdditionalReq'
 
 function CreateNew() {
 
@@ -26,7 +27,7 @@ function CreateNew() {
           {/* Design type*/}
             <DesignType selectedDesignType={(value) => onHandleInputChange(value, 'DesignType')} />
           {/* Additional requirement text area (optional)*/}
-
+            <AdditionalReq/>
           {/* Button to generate image*/}
         </div>
 
