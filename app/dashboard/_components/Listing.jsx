@@ -13,9 +13,9 @@ function Listing() {
       
       <div className='flex justify-between items-center'>
           <h2 className='font-bold text-3xl'> Hello, {user?.fullName} </h2>
-          <Link href={'/dashboard/create-new'}> 
+          <Link href={'/dashboard/create-new'}>
               <Button>+ Redesign Room</Button>
-          </Link>
+        </Link>
       </div>
 
       {userRoomList?.length === 0?
