@@ -1,4 +1,5 @@
 import React from 'react'
+import ImageSelection from './_components/ImageSelection'
 
 function CreateNew() {
   return (
@@ -10,7 +11,7 @@ function CreateNew() {
 
        <div>
         {/* Image Selection*/}
-
+            <ImageSelection />
         {/* Form Input section*/}
 
        </div>
