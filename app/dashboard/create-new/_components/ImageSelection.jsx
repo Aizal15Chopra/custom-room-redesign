@@ -7,10 +7,10 @@ function ImageSelection() {
         <label>
             Select Image of your room
         </label>
-        <div>
+        <div className='mt-3'>
             <label 
                 htmlFor = 'upload-image'>
-                <div>
+                <div className='p-28 border rounded-xl border-dotted flex justify-center'>
                     <Image src = {'/imageupload.png'} width={50} height={50} alt='image'/>
                 </div>
             </label>
