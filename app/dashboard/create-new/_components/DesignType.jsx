@@ -37,7 +37,7 @@ function DesignType(selectedDesignType) {
         <div className='mt -3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-2'>
             {Designs.map((design, index)=>(
                 <div key={index} onClick={()=> {setSelectedOption(design.name);selectedDesignType(design.name)}}>
-                    <Image src={design.image} width = {100} height = {80} alt='image'
+                    <Image src={design.image} width = {160} height = {160} alt='image'
                     className={`rounded-md hover:scale-105 transition-all 
                     cursor-pointer ${design.name == selectedOption&&'border-2 border-primary rounded-md p-1'}`}/>
                     <h2>{design.name}</h2>
