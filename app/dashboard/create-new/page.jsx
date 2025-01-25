@@ -20,8 +20,13 @@ function CreateNew() {
 
   const GenerateAiImage=async()=>{
     const rawImageUrl = await SaveRawImageToFirebase();
-    // const result = await axios.post('/api/redesign-room', formData);
-    // console.log(result);
+    const result = await axios.post('/api/redesign-room',{
+      imageUrl:rawImageUrl,
+      roomType:formData.roomType,
+      DesignType:formData.DesignType,
+      additionalReq:formData.additionalReq
+    });
+    console.log(result);
   }
 
   const SaveRawImageToFirebase=async()=>{
@@ -63,7 +68,7 @@ function CreateNew() {
             <AdditionalReq additionalRequirementInput = {(value)=>onHandleInputChange(value,'additionalReq')}/>
           {/* Button to generate image*/}
           <Button className='w-full mt-5' onClick={GenerateAiImage}>Generate</Button>
-          <p className='text-sm text-gray-500 mb-52'>NOTE: 1 Credit will be used to redesign your room</p>
+          <p className='text-sm text-gray-500 mb-60'>NOTE: 1 Credit will be used to redesign your room</p>
         </div>
 
        </div>
