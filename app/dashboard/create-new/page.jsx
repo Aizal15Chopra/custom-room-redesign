@@ -20,13 +20,13 @@ function CreateNew() {
 
   const GenerateAiImage=async()=>{
     const rawImageUrl = await SaveRawImageToFirebase();
-    const result = await axios.post('/api/redesign-room', formData);
-    console.log(result);
+    // const result = await axios.post('/api/redesign-room', formData);
+    // console.log(result);
   }
 
   const SaveRawImageToFirebase=async()=>{
     // Save raw file image to firebase
-    const fileName=Data.now()+"_raw.png";
+    const fileName=Date.now()+"_raw.png";
     const imageRef = ref(storage, 'room-redesign/'+fileName);
 
     await uploadBytes(imageRef, formData.image).then(resp=>{
