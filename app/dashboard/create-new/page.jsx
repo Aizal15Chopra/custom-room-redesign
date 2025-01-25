@@ -22,11 +22,11 @@ function CreateNew() {
     const rawImageUrl = await SaveRawImageToFirebase();
     const result = await axios.post('/api/redesign-room',{
       imageUrl:rawImageUrl,
-      roomType:formData.roomType,
-      DesignType:formData.DesignType,
-      additionalReq:formData.additionalReq
+      roomType:formData?.roomType,
+      DesignType:formData?.DesignType,
+      additionalReq:formData?.additionalReq
     });
-    console.log(result);
+    console.log(result.data);
   }
 
   const SaveRawImageToFirebase=async()=>{
