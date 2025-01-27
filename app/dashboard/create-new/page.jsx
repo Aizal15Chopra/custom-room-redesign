@@ -8,9 +8,11 @@ import { Button } from '@/components/ui/button'
 import axios from 'axios'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { storage } from '@/config/firebaseConfig'
+import { useUser } from '@clerk/nextjs'
 
 function CreateNew() {
 
+  const {user}= useUser();
   const [formData, setFormData] = useState([]);
   const onHandleInputChange=(value, fieldName)=>{
     setFormData(prev=>({...prev, [fieldName]:value}))
@@ -24,7 +26,8 @@ function CreateNew() {
       imageUrl:rawImageUrl,
       roomType:formData?.roomType,
       DesignType:formData?.DesignType,
-      additionalReq:formData?.additionalReq
+      additionalReq:formData?.additionalReq,
+      userEmail:user?.primaryEmailAddress?.emailAddress
     });
     console.log(result);
   }

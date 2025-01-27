@@ -13,7 +13,7 @@ const replicate = new Replicate({
 export async function POST(req){
 
     // const {user} = useUser();
-    const {imageUrl, roomType, DesignType, additionalReq} = await req.json();
+    const {imageUrl, roomType, DesignType, additionalReq,userEmail} = await req.json();
 
     try{
         const input = {
@@ -37,12 +37,12 @@ export async function POST(req){
             designType:DesignType,
             orgImage:imageUrl,
             aiImage:downloadUrl,
-            userEmail:""
+            userEmail:userEmail
 
         }).returning({id:AiGeneratedImage.id});
         console.log(dbResult);
 
-        return NextResponse.json({'result': dbResult});
+        return NextResponse.json({'result': dbResult[0]});
 
         
 
