@@ -26,7 +26,7 @@ function CreateNew() {
       DesignType:formData?.DesignType,
       additionalReq:formData?.additionalReq
     });
-    console.log(result.data);
+    console.log(result);
   }
 
   const SaveRawImageToFirebase=async()=>{
