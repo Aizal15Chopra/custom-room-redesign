@@ -16,17 +16,17 @@ import {
 import { Button } from '@/components/ui/button';
   
 
-function AiOutputDialog({openDialog}) {
+function AiOutputDialog({openDialog, closeDialogue, orgImage, aiImage}) {
   return (
-    <AlertDialog>
+    <AlertDialog open = {openDialog}>
   <AlertDialogContent>
     <AlertDialogHeader>
       <AlertDialogTitle>Result: ?</AlertDialogTitle>
       <ReactBeforeSliderComponent
-            firstImage={FIRST_IMAGE}
-            secondImage={SECOND_IMAGE}
+            firstImage={{imageUrl:aiImage}}
+            secondImage={{imageUrl:orgImage}}
         />
-        <Button> Close</Button>
+        <Button onClick = {()=>closeDialogue(false)}>Close</Button>
     </AlertDialogHeader>
   </AlertDialogContent>
 </AlertDialog>

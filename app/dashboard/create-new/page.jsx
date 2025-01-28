@@ -10,14 +10,18 @@ import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { storage } from '@/config/firebaseConfig'
 import { useUser } from '@clerk/nextjs'
 import CustomLoading from './_components/CustomLoading'
+import AiOutputDialog from '../_components/AiOutputDialog'
 
 function CreateNew() {
 
   const {user}= useUser();
   const [formData, setFormData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const[aiOutputImage,setAiOutputImage] = useState();
+  const [aiOutputImage,setAiOutputImage] = useState();
   const [openOutputDialogu, setOpenOutputDialog] = useState(false);
+  const [orgImage, setOrgImage] = useState();
+
+
   // const [outputResult, setOutputResult] = useState();
   const onHandleInputChange=(value, fieldName)=>{
   setFormData(prev=>({...prev, [fieldName]:value}))
@@ -54,6 +58,7 @@ function CreateNew() {
     //upload file image url
     const downloadUrl = await getDownloadURL(imageRef);
     console.log(downloadUrl);
+    setOrgImage(downloadUrl);
     return downloadUrl;
        
 
@@ -86,6 +91,10 @@ function CreateNew() {
 
        </div>
        <CustomLoading loading={loading}/>
+       <AiOutputDialog openDialog={openOutputDialogu}/>
+       closeDialogue={()=>setOpenOutputDialog(false)}
+       orgImageUrl = {orgImage}
+       aiImageUrl = {aiOutputImage}
     </div>
   )
 }
