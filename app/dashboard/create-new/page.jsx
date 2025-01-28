@@ -76,7 +76,7 @@ function CreateNew() {
         </div>
 
        </div>
-       <CustomLoading />
+       <CustomLoading loading={true}/>
     </div>
   )
 }
