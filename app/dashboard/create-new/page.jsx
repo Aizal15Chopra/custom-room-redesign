@@ -9,6 +9,7 @@ import axios from 'axios'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { storage } from '@/config/firebaseConfig'
 import { useUser } from '@clerk/nextjs'
+import CustomLoading from './_components/CustomLoading'
 
 function CreateNew() {
 
@@ -75,6 +76,7 @@ function CreateNew() {
         </div>
 
        </div>
+       <CustomLoading />
     </div>
   )
 }
