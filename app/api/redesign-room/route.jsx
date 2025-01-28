@@ -42,7 +42,7 @@ export async function POST(req){
         }).returning({id:AiGeneratedImage.id});
         console.log(dbResult);
 
-        return NextResponse.json({'result': dbResult[0]});
+        return NextResponse.json({'result': downloadUrl});
 
         
 

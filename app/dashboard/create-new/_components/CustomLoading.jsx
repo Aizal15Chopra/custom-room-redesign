@@ -21,6 +21,7 @@ function CustomLoading({loading}) {
                 <Image src = {'/loading.gif'} alt = 'loading'
                 width={100}
                 height={100}/>
+                <h2>Redesigning your room... Do not Refresh</h2>
             </div>
         </AlertDialogContent>
     </AlertDialog>

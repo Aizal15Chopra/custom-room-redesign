@@ -15,13 +15,18 @@ function CreateNew() {
 
   const {user}= useUser();
   const [formData, setFormData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const[aiOutputImage,setAiOutputImage] = useState();
+  const [openOutputDialogu, setOpenOutputDialog] = useState(false);
+  // const [outputResult, setOutputResult] = useState();
   const onHandleInputChange=(value, fieldName)=>{
-    setFormData(prev=>({...prev, [fieldName]:value}))
+  setFormData(prev=>({...prev, [fieldName]:value}))
 
     console.log(formData); 
   }
 
   const GenerateAiImage=async()=>{
+    setLoading(true);
     const rawImageUrl = await SaveRawImageToFirebase();
     const result = await axios.post('/api/redesign-room',{
       imageUrl:rawImageUrl,
@@ -31,6 +36,10 @@ function CreateNew() {
       userEmail:user?.primaryEmailAddress?.emailAddress
     });
     console.log(result);
+    setAiOutputImage(result.data.result);
+    setOpenOutputDialog(true);      
+    setLoading(false);
+   
   }
 
   const SaveRawImageToFirebase=async()=>{
@@ -76,7 +85,7 @@ function CreateNew() {
         </div>
 
        </div>
-       <CustomLoading loading={true}/>
+       <CustomLoading loading={loading}/>
     </div>
   )
 }
