@@ -16,7 +16,7 @@ import {
 import { Button } from '@/components/ui/button';
   
 
-function AiOutputDialog({openDialog, closeDialogue, orgImage, aiImage}) {
+function AiOutputDialog({openDialog, closeDialog, orgImage, aiImage}) {
   return (
     <AlertDialog open = {openDialog}>
   <AlertDialogContent>
@@ -26,7 +26,7 @@ function AiOutputDialog({openDialog, closeDialogue, orgImage, aiImage}) {
             firstImage={{imageUrl:aiImage}}
             secondImage={{imageUrl:orgImage}}
         />
-        <Button onClick = {()=>closeDialogue(false)}>Close</Button>
+        <Button onClick={()=>closeDialog(false)}>Close</Button>
     </AlertDialogHeader>
   </AlertDialogContent>
 </AlertDialog>

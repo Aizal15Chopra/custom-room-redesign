@@ -18,7 +18,7 @@ function CreateNew() {
   const [formData, setFormData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [aiOutputImage,setAiOutputImage] = useState();
-  const [openOutputDialogu, setOpenOutputDialog] = useState(false);
+  const [openOutputDialog, setOpenOutputDialog] = useState(false);
   const [orgImage, setOrgImage] = useState();
 
 
@@ -91,8 +91,8 @@ function CreateNew() {
 
        </div>
        <CustomLoading loading={loading}/>
-       <AiOutputDialog openDialog={openOutputDialogu}/>
-       closeDialogue={()=>setOpenOutputDialog(false)}
+       <AiOutputDialog openDialog={openOutputDialog}/>
+       closeDialog={()=>setOpenOutputDialog(false)}
        orgImageUrl = {orgImage}
        aiImageUrl = {aiOutputImage}
     </div>
