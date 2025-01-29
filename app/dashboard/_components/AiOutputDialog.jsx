@@ -1,7 +1,4 @@
-import React from 'react'
-import ReactBeforeSliderComponent from 'react-before-after-slider-component';
-import 'react-before-after-slider-component/dist/build.css';
-
+import React from 'react' 
 import {
     AlertDialog,
     AlertDialogAction,
@@ -9,28 +6,38 @@ import {
     AlertDialogContent,
     AlertDialogDescription,
     AlertDialogFooter,
-    AlertDialogHeader,
+    AlertDialogHeader, 
     AlertDialogTitle,
     AlertDialogTrigger,
-  } from "@/components/ui/alert-dialog"
+} from "@/components/ui/alert-dialog"
 import { Button } from '@/components/ui/button';
-  
+import ReactBeforeSliderComponent from 'react-before-after-slider-component';
+import 'react-before-after-slider-component/dist/build.css';
 
 function AiOutputDialog({openDialog, closeDialog, orgImage, aiImage}) {
   return (
-    <AlertDialog open = {openDialog}>
+<AlertDialog open={openDialog}> 
   <AlertDialogContent>
     <AlertDialogHeader>
-      <AlertDialogTitle>Result: ?</AlertDialogTitle>
-      <ReactBeforeSliderComponent
-            firstImage={{imageUrl:aiImage}}
-            secondImage={{imageUrl:orgImage}}
-        />
-        <Button onClick={()=>closeDialog(false)}>Close</Button>
+      <AlertDialogTitle>Result:</AlertDialogTitle>
     </AlertDialogHeader>
+    
+    {/* Slider with fixed height container */}
+    <div className="h-[500px] w-full"> 
+      <ReactBeforeSliderComponent
+        firstImage={{ imageUrl: aiImage }}
+        secondImage={{ imageUrl: orgImage }}
+      />
+    </div>
+
+    <Button 
+      className="w-full mt-4" 
+      onClick={() => closeDialog(false)}
+    >
+      Close
+    </Button>
   </AlertDialogContent>
 </AlertDialog>
-
   )
 }
 

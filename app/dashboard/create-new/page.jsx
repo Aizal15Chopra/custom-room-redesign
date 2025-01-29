@@ -56,7 +56,7 @@ function CreateNew() {
     })
 
     //upload file image url
-    const downloadUrl = await getDownloadURL(imageRef);
+    const downloadUrl = await getDownloadURL(imageRef );
     console.log(downloadUrl);
     setOrgImage(downloadUrl);
     return downloadUrl;
@@ -91,8 +91,8 @@ function CreateNew() {
 
        </div>
        <CustomLoading loading={loading}/>
-       <AiOutputDialog openDialog={openOutputDialog}/>
-       closeDialog={()=>setOpenOutputDialog(false)}
+       <AiOutputDialog openDialog={openOutputDialog} 
+       closeDialog={()=>setOpenOutputDialog(false)}/>
        orgImageUrl = {orgImage}
        aiImageUrl = {aiOutputImage}
     </div>

@@ -17,6 +17,7 @@ function CustomLoading({loading}) {
   return (
     <AlertDialog open={loading} className = 'bg-gray-50'>
         <AlertDialogContent>
+        <AlertDialogTitle/>
             <div className="bg-gray-50 flex flex-col items-center">
                 <Image src = {'/loading.gif'} alt = 'loading'
                 width={200}
