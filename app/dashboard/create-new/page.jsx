@@ -39,10 +39,11 @@ function CreateNew() {
       additionalReq:formData?.additionalReq,
       userEmail:user?.primaryEmailAddress?.emailAddress
     });
-    console.log(result);
+    console.log("nigga",result);
     setAiOutputImage(result.data.result);
     setOpenOutputDialog(true);      
     setLoading(false);
+    console.log("lun da putt",aiOutputImage)
    
   }
 
@@ -59,6 +60,9 @@ function CreateNew() {
     const downloadUrl = await getDownloadURL(imageRef );
     console.log(downloadUrl);
     setOrgImage(downloadUrl);
+
+    console.log("lodulalit", orgImage)
+    console.log("lodulalit1", aiOutputImage)
     return downloadUrl;
        
 
@@ -91,10 +95,8 @@ function CreateNew() {
 
        </div>
        <CustomLoading loading={loading}/>
-       <AiOutputDialog openDialog={openOutputDialog} 
-       closeDialog={()=>setOpenOutputDialog(false)}/>
-       orgImageUrl = {orgImage}
-       aiImageUrl = {aiOutputImage}
+       <AiOutputDialog openDialog={openOutputDialog} closeDialog={()=>setOpenOutputDialog(false)} orgImageUrl = {orgImage} aiImageUrl = {aiOutputImage}/>
+      
     </div>
   )
 }

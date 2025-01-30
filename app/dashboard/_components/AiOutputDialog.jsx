@@ -14,8 +14,11 @@ import { Button } from '@/components/ui/button';
 import ReactBeforeSliderComponent from 'react-before-after-slider-component';
 import 'react-before-after-slider-component/dist/build.css';
 
-function AiOutputDialog({openDialog, closeDialog, orgImage, aiImage}) {
+function AiOutputDialog({openDialog, closeDialog, orgImageUrl, aiImageUrl}) {
+  console.log("lodu", orgImageUrl)
+  console.log("lodu1", aiImageUrl)
   return (
+    
 <AlertDialog open={openDialog}> 
   <AlertDialogContent>
     <AlertDialogHeader>
@@ -23,15 +26,14 @@ function AiOutputDialog({openDialog, closeDialog, orgImage, aiImage}) {
     </AlertDialogHeader>
     
     {/* Slider with fixed height container */}
-    <div className="h-[500px] w-full"> 
+    {/* <div>  */}
       <ReactBeforeSliderComponent
-        firstImage={{ imageUrl: aiImage }}
-        secondImage={{ imageUrl: orgImage }}
+        firstImage={{ imageUrl: aiImageUrl }}
+        secondImage={{ imageUrl: orgImageUrl }}
       />
-    </div>
+    {/* </div> */}
 
-    <Button 
-      className="w-full mt-4" 
+    <Button  
       onClick={() => closeDialog(false)}
     >
       Close
