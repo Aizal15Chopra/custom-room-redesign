@@ -1,13 +1,29 @@
 "use client"
 import { Button } from '@/components/ui/button';
 import { useUser } from '@clerk/clerk-react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import EmptyState from './EmptyState';
 import Link from 'next/link';
+import { db } from '@/config/db';
+import { AiGeneratedImage } from '@/config/schema';
+import { eq } from 'drizzle-orm';
+import RoomDesignCard from './RoomDesignCard';
 
 function Listing() {
   const {user} = useUser(); 
   const [userRoomList, setUserRoomList] = useState([]);
+
+  useEffect(()=>{
+    user&&GetUserRoomList();  
+  },[user])
+
+  const GetUserRoomList = async()=>{
+    const result = await db.select().from(AiGeneratedImage)
+
+    .where(eq(AiGeneratedImage.userEmail,user?.primaryEmailAddress?.emailAddress))
+    setUserRoomList(result);
+    console.log("lun",result);
+  }
   return (
     <div>
       
@@ -23,6 +39,9 @@ function Listing() {
           :
         <div>
           {/*Listing*/}
+          {userRoomList.map((room,index)=>(
+              <RoomDesignCard key={index}/>
+          ))}
         </div>
       
       
@@ -34,4 +53,4 @@ function Listing() {
   )
 }
 
-export default Listing
+export default Listing 
