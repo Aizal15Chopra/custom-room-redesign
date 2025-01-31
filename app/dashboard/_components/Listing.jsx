@@ -39,7 +39,7 @@ function Listing() {
           :
         <div>
           {/*Listing*/}
-          <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+          <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10'>
               {userRoomList.map((room,index)=>(
                   <RoomDesignCard key={index} room = {room}/>
               ))}
