@@ -39,9 +39,11 @@ function Listing() {
           :
         <div>
           {/*Listing*/}
-          {userRoomList.map((room,index)=>(
-              <RoomDesignCard key={index} room = {room}/>
-          ))}
+          <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+              {userRoomList.map((room,index)=>(
+                  <RoomDesignCard key={index} room = {room}/>
+              ))}
+          </div>
         </div>
       
       

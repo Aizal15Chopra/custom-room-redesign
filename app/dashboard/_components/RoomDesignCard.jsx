@@ -6,7 +6,7 @@ function  RoomDesignCard({room}) {
   return (
     <div>
             <ReactBeforeSliderComponent
-        firstImage={{imageUrl: room?.aiImageUrl}}
+        firstImage={{imageUrl: room?.aiImage}}
         secondImage={{imageUrl:room?.orgImage}}
     />
 
