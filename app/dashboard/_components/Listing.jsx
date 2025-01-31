@@ -22,7 +22,7 @@ function Listing() {
 
     .where(eq(AiGeneratedImage.userEmail,user?.primaryEmailAddress?.emailAddress))
     setUserRoomList(result);
-    console.log("lun",result);
+    console.log(result);
   }
   return (
     <div>
@@ -40,7 +40,7 @@ function Listing() {
         <div>
           {/*Listing*/}
           {userRoomList.map((room,index)=>(
-              <RoomDesignCard key={index}/>
+              <RoomDesignCard key={index} room = {room}/>
           ))}
         </div>
       
