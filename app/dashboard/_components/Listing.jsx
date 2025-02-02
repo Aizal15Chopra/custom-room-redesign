@@ -37,12 +37,13 @@ function Listing() {
       {userRoomList?.length === 0?
         <EmptyState/>
           :
-        <div>
+        <div className='mt-10'>
+          <h2 className='font-semibold text-primary text-3xl text-center mb-10'>Your AI Room Studio</h2>
           {/*Listing*/}
           <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10'>
               {userRoomList.map((room,index)=>(
                   <RoomDesignCard key={index} room = {room}/>
-              ))}
+              ))}            
           </div>
         </div>
       
